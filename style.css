@@ -1,0 +1,654 @@
+/* PRESETS */
+:root {
+    --text: #010104;
+	--menu: #fffbfa;
+	--background: #21a1cc;
+	--header: #b92770;
+
+	--mainFont: mainFont;
+
+}
+
+@font-face {
+	font-family: mainFont;
+	src: url(fonts/OTF/Amulya-Medium.otf);
+}
+
+* {
+	color: var(--text);
+	font-family: var(--mainFont);
+	scroll-behavior: smooth;
+	scroll-padding-top: 7.5rem;
+	box-sizing: border-box;
+	transition: all 0.3s ease-in-out;
+}
+
+html,
+body {
+	overflow-x: hidden;
+	margin: 0;
+	padding: 0;
+	background-color: var(--background);
+	position: relative;
+}
+
+main {
+	width: 100vw;
+	top: 0;
+	position: relative;
+}
+
+::selection {
+	background-color: var(--header);
+}
+
+button,
+a {
+	cursor: pointer;
+	text-decoration: none;
+	color: inherit;
+}
+
+/* HEADER */
+.betterHeader {
+	font-family: var(--mainFont);
+}
+
+.betterHeader .headerSpaceholder {
+	height: 5rem;
+	width: 100%;
+	position: relative;
+}
+
+.betterHeader .realHeader {
+	background-color: var(--menu);
+	height: 5rem;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	display: flex;
+	justify-content: right;
+	align-items: center;
+	flex-wrap: nowrap;
+	z-index: 5;
+}
+
+.betterHeader .logoLink {
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	margin-left: 1rem;
+	left: 0;
+	padding: 0.05rem 0.5rem;
+	position: absolute;
+	z-index: 2;
+	border-radius: 10px;
+	outline: 0px solid black;
+	transition: all 0.3s ease-in-out;
+	outline-offset: -10px;
+
+	color: var(--text);
+}
+
+.betterHeader .logoLink svg {
+	position: relative;
+	height: 2rem;
+	width: 2rem;
+	margin-right: 0.25rem;
+	transition: all 0.3s ease-in-out;
+	fill: var(--text);
+}
+
+.betterHeader .logoLink h2 {
+	position: relative;
+	color: var(--text);
+	white-space: nowrap;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 2rem;
+	font-family: var(--mainFont);
+	margin: 0;
+	margin-bottom: 0.125rem;
+}
+
+.betterHeader .logoLink:hover {
+	transform: scale(1.1);
+}
+
+.betterHeader .logoLink:hover h2 {
+	color: var(--header);
+}
+
+
+.betterHeader .logoLink:hover svg {
+	fill: var(--header);
+}
+
+
+.betterHeader .logoLink:focus-visible {
+	outline: 2px solid var(--header);
+	outline-offset: 5px;
+	transform: scale(1.1);
+}
+
+.betterHeader .logoLink:focus-visible h2 {
+	color: var(--header);
+}
+
+
+.betterHeader .logoLink:focus-visible svg {
+	fill: var(--header);
+}
+
+.betterHeader .navBar {
+	display: flex;
+	justify-content: right;
+	align-items: center;
+	margin: 0rem 1rem;
+	position: relative;
+	height: 100%;
+
+	background-color: var(--menu);
+}
+
+.betterHeader .navBar .distanceChecker {
+	position: relative;
+	height: 100%;
+	width: 2rem;
+	opacity: 0;
+}
+
+.betterHeader .navBar .spaceHolder {
+	position: relative;
+	display: flex;
+	justify-content: right;
+	align-items: center;
+}
+
+.betterHeader .navBar .spaceHolder .openNav {
+	position: absolute;
+	width: max(1.2rem, 3.5vw);
+	height: max(1.2rem, 3.5vw);
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	border-radius: 100%;
+	outline: 0px solid black;
+	outline-offset: -10px;
+	transition: all 0.3s ease-in-out;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0.25rem;
+}
+
+.betterHeader .navBar .spaceHolder .openNav svg {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	transition: all 0.3s ease-in-out;
+	fill: var(--text);
+	outline: 0px solid black;
+	outline-offset: -10px;
+	border-radius: 100%;
+}
+
+.betterHeader .navBar .spaceHolder .openNav .hamburger {
+	opacity: 1;
+}
+
+.betterHeader .navBar .spaceHolder .openNav .close {
+	opacity: 0;
+}
+
+.betterHeader .navBar .spaceHolder .openNav:hover svg {
+	fill: var(--header);
+	transform: scale(1.1);
+}
+
+.betterHeader .navBar .spaceHolder .openNav:focus-visible svg {
+	fill: var(--header);
+	outline: 2px solid var(--header);
+	outline-offset: 4px;
+}
+
+.betterHeader .navBar ul {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-left: 0;
+	list-style: none;
+	height: 100%;
+	margin: 0;
+	position: relative;
+	background-color: var(--menu);
+	z-index: 3;
+}
+
+.betterHeader .navBar[data-expanded="true"] .spaceHolder .openNav {
+	visibility: hidden;
+}
+
+.betterHeader .navBar[data-expanded="false"] .spaceHolder .openNav {
+	visibility: visible;
+}
+
+.betterHeader .navBar[data-expanded="true"] ul {
+	position: relative;
+	opacity: 1 !important;
+}
+
+.betterHeader .navBar[data-expanded="false"] ul {
+	position: absolute;
+	top: 100%;
+}
+
+.betterHeader .navBar[data-expanded="false"] ul[data-open="false"] {
+	display: none;
+}
+
+.betterHeader .navBar ul[data-open="true"] {
+	opacity: 1;
+	right: -1rem;
+	width: 100vw;
+	flex-wrap: wrap;
+}
+
+.betterHeader .navBar ul[data-open="false"] {
+	opacity: 0;
+}
+
+.betterHeader .navBar ul {
+	position: absolute;
+}
+
+.betterHeader .navBar ul li {
+	white-space: nowrap;
+	width: max-content;
+	padding: 0rem 0.5rem;
+}
+
+.betterHeader .navBar ul li a {
+	font-family: var(--mainFont);
+	text-transform: uppercase;
+	color: var(--text);
+	border-radius: 10px;
+	outline: 0px solid rgba(0, 0, 0, 0);
+	outline-offset: -10px;
+	transition: all 0.3s ease-in-out;
+}
+
+.betterHeader .navBar ul li a:hover {
+	color: var(--header);
+	font-size: larger;
+	font-weight: bolder;
+}
+
+.betterHeader .navBar ul li a:focus-visible {
+	color: var(--header);
+	font-size: larger;
+	font-weight: bolder;
+	outline: 2px solid var(--header);
+	outline-offset: 0px;
+	padding: 0.5rem;
+}
+
+/* SECTION */
+
+section {
+	position: relative;
+	width: 100%;
+	height: fit-content;
+	box-sizing: border-box;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+	padding: 2rem;
+}
+
+section .contentSplit {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+	flex-wrap: wrap-reverse;
+	z-index: 2;
+}
+
+section .contentSplit .textHalf {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	flex-direction: column;
+	flex-grow: 2;
+}
+
+section h1 {
+	font-size: 2rem;
+}
+
+section .contentSplit .imageHalf {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-grow: 1;
+}
+
+section .contentSplit .imageHalf img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	max-width: 500px;
+	max-height: 500px;
+	filter: 
+		drop-shadow(-1px -1px 0 var(--text)) 
+		drop-shadow(3px -1px 0 var(--text)) 
+		drop-shadow(-2px 1px 0 var(--text)) 
+		drop-shadow(1px 3px 0 var(--text)) 
+}
+
+section .littleCloud {
+	position: absolute;
+	background-image: url('assets/littleCloud.png');
+	background-size: 100% 100%;
+	opacity: 0.5;
+}
+
+@keyframes cloudScroll {
+	0% {
+		left: 115%;
+	}
+	100% {
+		left: -50%;
+	}
+}
+
+section.standout {
+	background-color: var(--menu);
+	color: var(--text);
+}
+
+section.standout .contentSplit {
+	flex-wrap: wrap;
+}
+
+section .textHalf a {
+	font-weight: bolder;
+	border-radius: 10px;
+	outline: 0px solid rgba(0, 0, 0, 0);
+	outline-offset: -10px;
+	transition: all 0.3s ease-in-out;
+}
+
+section .textHalf a:hover {
+	color: var(--header);
+	font-size: larger;
+	font-weight: bolder;
+}
+
+section .textHalf a:focus-visible {
+	color: var(--header);
+	font-size: larger;
+	font-weight: bolder;
+	outline: 2px solid var(--header);
+	outline-offset: 0px;
+	padding: 0.5rem;
+}
+
+section .qualityDisplay {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 3rem;
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+}
+
+section .qualityDisplay .quality {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+section .qualityDisplay h2 {
+	margin: 1rem;
+}
+
+section .qualityDisplay p {
+	margin: 0rem;
+}
+
+section .learnMore {
+	border: none;
+	padding: 0.75rem;
+	border-radius: 15px;
+	background-color: var(--header);
+	color: var(--menu);
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	outline: 0px solid rgba(0, 0, 0, 0);
+	outline-offset: -10px;
+	transition: all 0.3s ease-in-out;
+}
+
+section .learnMore:hover {
+	color: var(--menu);
+	outline: 2px solid var(--background);
+	outline-offset: 3px;
+	background-color: var(--background);
+}
+
+section .learnMore:focus-visible {
+	color: var(--menu);
+	outline: 2px solid var(--background);
+	outline-offset: 3px;
+	background-color: var(--background);
+}
+
+section .learnMore::after {
+	content: '➜';
+	position: relative;
+	height: 100%;
+	width: 0rem;
+	top: 0;
+	right: 0;
+	border-radius: 15px;
+	overflow: hidden;
+	transition: all 0.3s ease-in-out;
+	display: flex;
+	justify-content: right;
+	align-items: center;
+}
+
+section .learnMore:hover::after, section .learnMore:focus-visible::after  {
+	width: 1.5rem;
+}
+
+section.cloudScroll h2,  section.cloudScroll h1, section.cloudScroll p {
+	color: var(--menu);
+	text-shadow: -1.5px -1.5px 0 var(--text), 1.5px -1.5px 0 var(--text), -1.5px 1.5px 0 var(--text), 1.5px 1.5px 0 var(--text); 
+}
+
+.standout h2, .standout p{
+	text-shadow: none !important;
+	color: var(--text) !important
+}
+
+section .contactButton {
+	border: none;
+	padding: 0.75rem;
+	border-radius: 15px;
+	background-color: var(--header);
+	color: var(--menu);
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	outline: 0px solid rgba(0, 0, 0, 0);
+	outline-offset: -10px;
+	transition: all 0.3s ease-in-out;
+}
+
+section .textHalf .contactButton:hover {
+	color: var(--menu);
+	outline: 3px solid var(--header);
+	outline-offset: 3px;
+	background-color: var(--header);
+}
+
+section .textHalf .contactButton:focus-visible {
+	color: var(--menu);
+	outline: 3px solid var(--header);
+	outline-offset: 3px;
+	background-color: var(--header);
+}
+
+section .contactButton::after {
+	content: '➜';
+	position: relative;
+	height: 100%;
+	width: 0rem;
+	top: 0;
+	right: 0;
+	border-radius: 15px;
+	overflow: hidden;
+	transition: all 0.3s ease-in-out;
+	display: flex;
+	justify-content: right;
+	align-items: center;
+}
+
+section .contactButton:hover::after, section .contactButton:focus-visible::after  {
+	width: 1.5rem;
+}
+
+@media (min-width: 600px) {
+	section .contentSplit {
+		flex-wrap: nowrap !important;
+	}
+
+	section .contentSplit {
+		gap: 2rem;
+	}
+
+	.qualityDisplay .quality:nth-child(odd) .contentSplit {
+		flex-flow: row-reverse !important;
+	}
+
+	section .learnMore {
+		margin-top: 1.5rem;
+	}
+
+	section h1 {
+		font-size: 2.25rem;
+	}
+
+	.standout > .contentSplit:first-child h2 {
+		font-size: 1.75rem;
+	}
+
+	.standout {
+		padding: 3rem;
+	}
+
+	section .qualityDisplay {
+		gap: 4rem;
+		padding-top: 4rem;
+		padding-bottom: 4rem;
+	}
+}
+
+@media (min-width: 1000px) {
+	section .contentSplit {
+		gap: 4rem;
+	}
+
+	section h1 {
+		font-size: 3rem;
+	}
+
+	.standout > .contentSplit:first-child h2 {
+		font-size: 2rem;
+	}
+
+	section {
+		margin-top: 3rem;
+		margin-bottom: 3rem;
+	}
+
+	.standout {
+		padding: 3rem;
+		width: 80%;
+		margin-left: 10%;
+		border-radius: 25px;
+		box-shadow: 15px 15px 15px -3px rgba(0, 0, 0, 0.5);
+	}
+
+	section .qualityDisplay {
+		gap: 4rem;
+		padding-top: 4rem;
+		padding-bottom: 4rem;
+	}
+
+	.standout .contentSplit {
+		max-width: 70%;
+		padding-top: 3rem;
+	}
+}
+
+/* FOOTER */
+footer {
+	position: relative;
+	width: 100%;
+	background-color: var(--menu);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	padding: 1rem;
+}
+
+footer > * {
+	padding: 0.5rem;
+}
+
+footer a {
+	border-radius: 10px;
+	outline: 0px solid rgba(0, 0, 0, 0);
+	outline-offset: -10px;
+	transition: all 0.3s ease-in-out;
+}
+
+footer a:hover {
+	color: var(--header);
+	font-size: larger;
+	font-weight: bolder;
+}
+
+footer a:focus-visible {
+	color: var(--header);
+	font-size: larger;
+	font-weight: bolder;
+	outline: 2px solid var(--header);
+	outline-offset: 0px;
+}
+
+footer p {
+	margin: 0rem;
+}
