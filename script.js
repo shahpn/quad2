@@ -38,16 +38,18 @@ function checkScreenWidth() {
     const screenWidth = window.innerWidth;
     const standout = document.querySelector(".standout");
 
-    if (screenWidth >= 1000) {
-        if (!standout.classList.contains('cloudScroll')) {
-            standout.classList.add('cloudScroll');
-            cloudScroll(standout);
-        }
-    } else {
-        const littleClouds = standout.querySelectorAll('.littleCloud');
-        if (littleClouds.length > 0) {
-            littleClouds.forEach(cloud => cloud.remove());
-            standout.classList.remove('cloudScroll');
+    if (standout) {
+        if (screenWidth >= 1000) {
+            if (!standout.classList.contains('cloudScroll')) {
+                standout.classList.add('cloudScroll');
+                cloudScroll(standout);
+            }
+        } else {
+            const littleClouds = standout.querySelectorAll('.littleCloud');
+            if (littleClouds.length > 0) {
+                littleClouds.forEach(cloud => cloud.remove());
+                standout.classList.remove('cloudScroll');
+            }
         }
     }
 }
