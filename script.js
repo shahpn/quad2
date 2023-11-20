@@ -8,6 +8,11 @@ document.addEventListener('DOMContentLoaded', function() {
     //Adjust cloud scroll when screen is 1000px wide or greater
     checkScreenWidth();
     window.addEventListener("resize", checkScreenWidth);
+
+    //If this is a blogpost, generate a reading time length
+    const readingTime = document.getElementById('readingTime');
+    const postText = document.getElementById('postText');
+    generateReadingTime(readingTime, postText);
 });
 
 function cloudScroll(cloud) {
@@ -52,4 +57,16 @@ function checkScreenWidth() {
             }
         }
     }
+}
+
+function generateReadingTime(readingTime, postText) {
+    const countWords = text => (text.match(/\b\w+\b/g) || []).length;
+    const totalWords = countWords(postText.textContent);
+    var duration = Math.round(totalWords/200);
+
+    if (duration <= 0) {
+        duration = "> 1";
+    }
+
+    readingTime.innerText = `${duration} minute read`;
 }
