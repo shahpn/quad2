@@ -12,7 +12,9 @@ document.addEventListener('DOMContentLoaded', function() {
     //If this is a blogpost, generate a reading time length
     const readingTime = document.getElementById('readingTime');
     const postText = document.getElementById('postText');
-    generateReadingTime(readingTime, postText);
+    if (readingTime && postText) {
+        generateReadingTime(readingTime, postText);
+    }
 });
 
 function cloudScroll(cloud) {

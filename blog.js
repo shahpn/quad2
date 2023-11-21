@@ -8,9 +8,7 @@ function populateBlog(blogposts) {
 
     const copyBlogPost = document.getElementById("copyBlogPost");
 
-    console.log("Blogposts Folder: " + blogposts);
     const blogJSON = `${blogposts}/blog.json`;
-    console.log("Blog JSON: " + blogJSON);
 
     fetch(blogJSON)
     .then(response => response.json())
