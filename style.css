@@ -1,5 +1,6 @@
 /* PRESETS */
 :root {
+	--white: #fffbfa;
     --text: #010104;
 	--menu: #d9edf3;
 	--offwhite: #e8e8e8;
@@ -63,7 +64,7 @@ a {
 }
 
 .betterHeader .realHeader {
-	background-color: var(--menu);
+	background-color: var(--white);
 	height: 5rem;
 	width: 100%;
 	position: fixed;
@@ -156,7 +157,7 @@ a {
 	position: relative;
 	height: 100%;
 
-	background-color: var(--menu);
+	background-color: var(--white);
 }
 
 .betterHeader .navBar .distanceChecker {
@@ -229,7 +230,7 @@ a {
 	height: 100%;
 	margin: 0;
 	position: relative;
-	background-color: var(--menu);
+	background-color: var(--white);
 	z-index: 3;
 }
 
